@@ -1,0 +1,50 @@
+﻿@model SignsTranslator.Models.Signs
+
+@{ ViewData["Title"] = "Create"; }
+
+<h4>Signs Form</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="AddOrEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SignId" />
+            <div class="form-group">
+                <label asp-for="Swedish" class="control-label"></label>
+                <input asp-for="Swedish" class="form-control" />
+                <span asp-validation-for="Swedish" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="English" class="control-label"></label>
+                    <input asp-for="English" class="form-control" />
+                    <span asp-validation-for="English" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Russian" class="control-label"></label>
+                    <input asp-for="Russian" class="form-control" />
+                    <span asp-validation-for="Russian" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Arabic" class="control-label"></label>
+                <input asp-for="Arabic" class="form-control" />
+                <span asp-validation-for="Arabic" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input type="submit" value="Submit" class="btn btn-primary btn-block" />
+                </div>
+                <div class="form-group col-md-6">
+                    <a asp-action="Index" class="btn btn-secondary btn-block"><i class="fa fa-table"></i> Back to List</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

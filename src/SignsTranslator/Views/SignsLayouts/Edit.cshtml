@@ -1,0 +1,44 @@
+﻿@model SignsTranslator.Models.SignsLayouts
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>SignsLayouts</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SignId" />
+            <div class="form-group">
+                <label asp-for="LayoutId" class="control-label"></label>
+                <input asp-for="LayoutId" class="form-control" />
+                <span asp-validation-for="LayoutId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PDFDefinition" class="control-label"></label>
+                <input asp-for="PDFDefinition" class="form-control" />
+                <span asp-validation-for="PDFDefinition" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageThumbnail" class="control-label"></label>
+                <input asp-for="ImageThumbnail" class="form-control" />
+                <span asp-validation-for="ImageThumbnail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

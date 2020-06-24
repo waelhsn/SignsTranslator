@@ -1,0 +1,53 @@
+﻿@model IEnumerable<SignsTranslator.Models.Signs>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h4>Signs</h4>
+<hr />
+
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Swedish)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.English)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Russian)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Arabic)
+        </th>
+        <th>
+            <a asp-action="AddOrEdit" class="btn btn-outline-success"><i class="far fa-plus-square"></i>  New </a>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Swedish)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.English)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Russian)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arabic)
+            </td>
+            <td>
+                <a asp-action="AddOrEdit" asp-route-id="@item.SignId"><i class="fa fa-marker fa-lg"></i></a>
+                <a asp-action="Delete" asp-route-id="@item.SignId" class="text-danger ml-1" onclick="return confirm('Are you sure to delete this Sign?')"><i class="fa fa-trash-alt fa-lg"></i></a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
